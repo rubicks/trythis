@@ -1,6 +1,6 @@
 -- sqlite/ex6.sql
 
-.read "ex4.sql"
+.read "ex5.sql"
 
 select pet.id, pet.name, pet.age, pet.dead
   from pet, person_pet, person

@@ -1,6 +1,6 @@
 -- sqlite/ex7.sql
 
-.read "ex4.sql"
+.read "ex6.sql"
 
 -- make sure there are dead pets
 select name, age from pet where 1 = dead ;
