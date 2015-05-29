@@ -90,7 +90,6 @@ select * from person_pet ;
 -- Write a query that can find all the name of pets and their owners bought
 -- after 2004. The key to this is to map the 'person_pet' based on the
 -- 'purchased_on' column to the 'pet' and the 'parent'
-
 select person.first_name, person.last_name, pet.name, person_pet.purchased_on
   from person, pet, person_pet
   where person_pet.purchased_on >= datetime('2004-01-01')
