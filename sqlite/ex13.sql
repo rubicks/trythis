@@ -68,13 +68,33 @@ insert into person
 insert into pet
   (id, name, breed, age, dead, dob, parent)
   values
-  (2, 'Ralph', 'cat', 18, 1, datetime('now','-18 years'), 1),
-  (3, 'Frankie', 'cat', 7, 0, datetime('now','-7 years'), 2),
-  (4, 'Rex', 'cat', 2, 0, datetime('now','-2 years'), 1),
-  (5, 'Harvey', 'cat', 3, 0, datetime('now','-3 years'), 1),
-  (6, 'Broseph', 'cat', 5, 1, datetime('now','-5 years'), 1)
-  ;
+  (2, 'Ralph',   'cat', 18, 1, datetime('now','-55 months'), 1),
+  (3, 'Frankie', 'cat',  7, 0, datetime('now','-34 months'), 2),
+  (4, 'Rex',     'cat',  2, 0, datetime('now','-21 months'), 1),
+  (5, 'Harvey',  'cat',  3, 0, datetime('now','-13 months'), 1),
+  (6, 'Broseph', 'cat',  5, 1, datetime('now', '-8 months'), 1);
+
+insert into person_pet
+  (person_id, pet_id, purchased_on)
+  values
+  (1, 2, datetime('2000-12-01')),
+  (2, 3, datetime('2001-01-02')),
+  (3, 4, datetime('2002-03-05')),
+  (4, 5, datetime('2004-08-13')),
+  (4, 6, datetime('2008-09-04'));
 
 select * from person ;
 select * from pet ;
 select * from person_pet ;
+
+-- Write a query that can find all the name of pets and their owners bought
+-- after 2004. The key to this is to map the 'person_pet' based on the
+-- 'purchased_on' column to the 'pet' and the 'parent'
+
+select person.first_name, person.last_name, pet.name, person_pet.purchased_on
+  from person, pet, person_pet
+  where person_pet.purchased_on >= datetime('2004-01-01')
+  and person_pet.person_id = person.id
+  and person_pet.pet_id    = pet.id
+  ;
+
