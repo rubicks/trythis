@@ -101,6 +101,3 @@ select *
   where 1 = pet.parent
   ;
 
-select * from person ;
-select * from pet ;
-select * from person_pet ;
