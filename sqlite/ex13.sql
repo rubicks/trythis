@@ -83,10 +83,6 @@ insert into person_pet
   (4, 5, datetime('2004-08-13')),
   (4, 6, datetime('2008-09-04'));
 
-select * from person ;
-select * from pet ;
-select * from person_pet ;
-
 -- Write a query that can find all the name of pets and their owners bought
 -- after 2004. The key to this is to map the 'person_pet' based on the
 -- 'purchased_on' column to the 'pet' and the 'parent'
@@ -97,3 +93,14 @@ select person.first_name, person.last_name, pet.name, person_pet.purchased_on
   and person_pet.pet_id    = pet.id
   ;
 
+-- Write a query that can find the pets that are children of a given pet. Again
+-- look at the pet.parent to do this. It's actually easy, so don't overthink
+-- it.
+select *
+  from pet
+  where 1 = pet.parent
+  ;
+
+select * from person ;
+select * from pet ;
+select * from person_pet ;
