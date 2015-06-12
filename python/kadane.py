@@ -3,7 +3,7 @@
 # github.com/rubicks/trythis/python/kadane.py
 
 import sys
-import itertools
+
 
 def _kadane_idx(arr):
     ret = here = -sys.maxsize-1
