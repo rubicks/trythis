@@ -16,8 +16,7 @@ def _factor(n):
             n//=d
             ret.append(d)
             d = 2
-    ret.append(n)
-    return ret
+    return ret + [n]
 
 
 def main():
